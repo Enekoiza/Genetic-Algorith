@@ -19,7 +19,7 @@ private:
 
 public:
 	item() {};
-	item(string name, int weight, int value, int geneticValue);
+	item(string itemName, int itemWeight, int itemValue, int itemGeneticValue);
 
 	~item();
 
@@ -28,6 +28,9 @@ public:
 	int* getValue();
 	int* getWeight();
 	string* getName();
+	void setValue(int itemValue);
+	void setWeight(int itemWeight);
+	void setName(string itemName);
 };
 
 

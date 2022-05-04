@@ -140,6 +140,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="environment.cpp" />
+    <ClCompile Include="genetics.cpp" />
+    <ClCompile Include="item.cpp" />
+    <ClCompile Include="itemGroup.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>

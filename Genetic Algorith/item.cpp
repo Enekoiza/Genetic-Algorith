@@ -49,6 +49,22 @@ string* item::getName()
 	return name;
 }
 
+void item::setValue(int itemValue)
+{
+	*value = itemValue;
+}
+
+void item::setWeight(int itemWeight)
+{
+	*weight = itemWeight;
+}
+
+void item::setName(string itemName)
+{
+	*name = itemName;
+}
+
+
 
 
 

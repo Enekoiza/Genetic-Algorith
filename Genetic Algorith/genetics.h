@@ -1,5 +1,6 @@
 #include <vector>
 #include "itemGroup.h"
+#include <time.h>
 
 
 #ifndef GENETICS_H
@@ -12,12 +13,25 @@ using std::vector;
 class genetics
 {
 private:
-	vector<itemGroup> geneticExample;
+	vector<itemGroup *> geneticExample;
+	int populationSize = 50;
+	string dataFile = "data_file.csv";
 
 public:
-	void populateExample();
+
+	genetics();
+
+	~genetics();
 
 
+
+	int getPopulation();
+
+	vector<itemGroup*> getGeneticExample();
+
+	int calculateMin();
+	int calculateMax();
+	int calculateAverage();
 
 };
 
