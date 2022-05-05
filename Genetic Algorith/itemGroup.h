@@ -22,7 +22,7 @@ class itemGroup
 {
 private:
 	vector<item*> solution;
-	int solutionFitness;
+	int solutionFitness = 0;
 	int solutionLenght = 25;
 
 public:

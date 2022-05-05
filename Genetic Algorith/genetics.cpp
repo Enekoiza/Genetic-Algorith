@@ -29,6 +29,11 @@ vector<itemGroup*> genetics::getGeneticExample()
 	return geneticExample;
 }
 
+void genetics::setGeneticExample(vector<itemGroup*> geneticExample)
+{
+	this->geneticExample = geneticExample;
+}
+
 int genetics::calculateMin()
 {
 	int minValue = 0;
@@ -37,7 +42,7 @@ int genetics::calculateMin()
 	for (auto it : geneticExample)
 	{
 		temp = it->getSolutionFitness();
-		if (temp > minValue) minValue = temp;
+		if (temp < minValue) minValue = temp;
 	}
 
 	return minValue;
@@ -68,7 +73,7 @@ int genetics::calculateAverage()
 		averageValue += it->getSolutionFitness();
 	}
 
-	averageValue = averageValue / geneticExample[0]->getSolutionLenght();
+	averageValue = averageValue / populationSize;
 
 
 	return averageValue;

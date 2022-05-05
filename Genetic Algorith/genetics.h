@@ -29,6 +29,8 @@ public:
 
 	vector<itemGroup*> getGeneticExample();
 
+	void setGeneticExample(vector<itemGroup *> geneticExample);
+
 	int calculateMin();
 	int calculateMax();
 	int calculateAverage();

@@ -15,11 +15,7 @@ void environment::run()
 	{
 		std::cerr << "Failed to open " << filename << '\n';
 	}
-	else
-	{
-		output_fstream << "Maecenas accumsan purus id \norci gravida pellentesque." << std::endl;
-		std::cerr << "Done Writing!" << std::endl;
-	}
+
 	 
 	genetics* simulation = new genetics;
 
@@ -36,6 +32,8 @@ void environment::run()
 	vector<int> tournamentWinners;
 	vector<int> tournamentLosers;
 
+	int minimumFitness, averageFitness, maximumFitness;
+
 	int equalityFlag = 0;
 
 	std::map<int, int>::iterator it;
@@ -43,6 +41,10 @@ void environment::run()
 
 	for(int q = 0; q < generationsNumber; q++)
 	{
+		minimumFitness = 0;
+		averageFitness = 0;
+		maximumFitness = 0;
+
 		roundCounter++;
 		equalityFlag = 0;
 		while (equalityFlag == 0)
@@ -225,8 +227,16 @@ void environment::run()
 		tournamentWinners.clear();
 		tournamentParticipants.clear();
 		
+		
+		simulation->setGeneticExample(tempItemList);
+
+		minimumFitness = simulation->calculateMin();
+		averageFitness = simulation->calculateAverage();
+		maximumFitness = simulation->calculateMax();
+
+		output_fstream << minimumFitness << "," << averageFitness << "," << maximumFitness << std::endl;
 
 
 	}
-	
+	output_fstream.close();
 }
