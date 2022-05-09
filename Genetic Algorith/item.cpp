@@ -1,5 +1,7 @@
 #include "item.h"
 
+
+//Constructor to create an item with the desired data values
 item::item(string itemName, int itemWeight, int itemValue, int itemGeneticValue)
 {
 	
@@ -16,6 +18,8 @@ item::item(string itemName, int itemWeight, int itemValue, int itemGeneticValue)
 
 }
 
+
+//Destructor to get rid of the generated pointer if they exist
 item::~item()
 {
 	if (name != NULL) delete name;
@@ -24,44 +28,37 @@ item::~item()
 	if (geneticValue != NULL) delete geneticValue;
 }
 
+
+//Swap the value of the genetic value when a mutate is called
 void item::mutateGenetic()
 {
 	*geneticValue == 1 ? *geneticValue = 0 : *geneticValue = 1;
 }
 
+
+//return the genetic value
 int* item::getGeneticValue()
 {
 	return geneticValue;
 }
 
+//return the value
 int* item::getValue()
 {
 	return value;
 }
 
+//return the weight
 int* item::getWeight()
 {
 	return weight;
 }
 
+
+//return the name
 string* item::getName()
 {
 	return name;
-}
-
-void item::setValue(int itemValue)
-{
-	*value = itemValue;
-}
-
-void item::setWeight(int itemWeight)
-{
-	*weight = itemWeight;
-}
-
-void item::setName(string itemName)
-{
-	*name = itemName;
 }
 
 

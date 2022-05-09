@@ -1,59 +1,40 @@
-#include <vector>
 #include "item.h"
-#include <string>
-#include <iostream>
-#include <fstream>
-#include <sstream>
 
 
 
+// Header guards
 #ifndef ITEMGROUP_H
 #define ITEMGROUP_H
 
 
-using std::string;
-using std::vector;
-using std::ifstream;
-using std::getline;
-using std::stringstream;
-using std::fstream;
 
+//This class will hold the group of items or as called solution
 class itemGroup
 {
 private:
-	vector<item*> solution;
-	int solutionFitness = 0;
-	int solutionLenght = 25;
+	vector<item*> solution;						// Vector to hold all the items
+	int* solutionFitness = NULL;				// Solution fitness that will start at 0 and will be recalculated in the constructor
+	int* solutionLenght = NULL;					// Specification requires a solution lenght of 25
 
 public:
-	itemGroup() {};
+	itemGroup() {};								//Defual constructor
 	
-	itemGroup(vector<item*> list);
+	itemGroup(vector<item*> list);				// Constructor that will be used to generate new itemGroup while running the environment.run()
 
-	itemGroup(string fileName);
+	itemGroup(string fileName);					// Constructor that will be used while creating the item group from the given .csv file
 
-	~itemGroup();
-
-
-	vector<item *> getGroup();
+	~itemGroup();								// Destructor to get rid of all the pointer that are inside the solution
 
 
-	int getTotalValue();
-	int getTotalWeight();
-	int getSolutionFitness();
-	int getSolutionLenght();
+	vector<item *> getSolution();				// A funtion that returns the solution vector
+
+
+	int getTotalValue();						// A function that will return the summatory value of all the items which have the geneticValue = 1
+	int getTotalWeight();						// A function that will return the summatory weight of all the items which have the geneticValue = 1
+	int getSolutionFitness();					// A funtion to return the solution fitness
+	int getSolutionLenght();					// A function that returns the solution lenght
 
 };
-
-
-
-
-
-
-
-
-
-
 
 
 
